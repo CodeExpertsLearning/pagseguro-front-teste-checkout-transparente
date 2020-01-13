@@ -7,7 +7,7 @@ function drawPaymentsMethodsView(data)
     for (let key in data){
         let active = int == 0 ? 'active' : '';
 
-        if (key == 'CREDIT_CARD' || key == 'BOLETO') {
+        if (key == 'CREDIT_CARD' /*|| key == 'BOLETO'*/) {
             let name = key == 'CREDIT_CARD' ? 'CARTÃO DE CRÉDITO' : key;
             draw += '<li role="presentation" class="' + active + '"><a href="#' + data[key].name + '" aria-controls="home" role="tab" data-toggle="tab">' + name + '</a></li>';
         }
@@ -21,12 +21,12 @@ function drawPaymentsMethodsView(data)
 
     draw += '<div class="tab-content">';
     for (let key in data){
-        if(key == 'BOLETO') {
-            draw += drawBoletoArea(data, key, int);
-        }
+        // if(key == 'BOLETO') {
+        //     draw += drawBoletoArea(data, key, int);
+        // }
 
         if(key == 'CREDIT_CARD') {
-            draw += drawCreditCardArea(data, key, int);
+            draw += drawCreditCardArea(data, key, 0);
         }
 
         int++;
@@ -126,8 +126,6 @@ function creditCardForm()
 
     form += '<div class="row">';
 
-    form += '<div class="col-md-12">';
-
     form += '<div class="col-md-6">';
     form += '<div class="form-group">';
     form += '<label for="exampleInputPassword1">Mês Expiração</label>';
@@ -145,11 +143,9 @@ function creditCardForm()
     form += '</div>';
 
     form += '</div>';
-    form += '</div>';
 
     form += '<div class="row">';
-    form += '<div class="col-md-12">';
-
+    
     form += '<div class="col-md-6">';
     form += '<div class="form-group">';
     form += '<label for="exampleInputPassword1">CVV</label>';
@@ -158,7 +154,6 @@ function creditCardForm()
     form += '</div>';
     form += '</div>';
 
-    form += '</div>';
     form += '</div>';
 
     form += '<div class="row">';

@@ -23,6 +23,21 @@
         <div class="row">
             <div class="payments">Carregando...</div>
         </div>
+
+        <div class="row">
+         <div class="col-md-12">
+                <h3>Resultado...</h3>
+                <div class="form-group">
+                    <label>Token Cartão...</label>
+                    <input type="text" name="card_token" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Hash Usuário...</label>
+                    <input type="text" name="hash" class="form-control">
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

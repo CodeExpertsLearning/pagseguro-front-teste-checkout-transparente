@@ -6,6 +6,7 @@ function getAllPaymentMethods() {
     PagSeguroDirectPayment.getPaymentMethods({
         amount: totalPurchase,
         success: function(response) {
+            console.log(response);
             drawPaymentsMethodsView(response.paymentMethods);
         },
         error: function(response) {
@@ -84,8 +85,9 @@ $(document).on('click', '#pay',function () {
             expirationMonth: $('#cardMonth').val(),
             expirationYear: $('#cardYear').val(),
             success: function (response) {
-                //console.log('token generated', response.card.token);
-                makePurchase(response.card.token, method);
+                document.querySelector('input[name=card_token]').value = response.card.token;
+                document.querySelector('input[name=hash]').value = PagSeguroDirectPayment.getSenderHash()
+                //makePurchase(response.card.token, method);
             },
             error: function(d) {
                 console.log(d);
